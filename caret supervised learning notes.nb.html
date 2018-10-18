@@ -180,71 +180,30 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGZvcmNhdHMpXG5saWJyYXJ5KGdncHVicilcbmxpYnJhcnkoZ3JpZEV4dHJhKVxubGlicmFyeShjYXJldClcbmxpYnJhcnkoY2hlY2twb2ludClcbiMgbGlicmFyeSh6b28pXG5cbm9wdGlvbnMoc2NpcGVuPTk5OSlcbnJtKGxpc3QgPSBscyhhbGwgPSBUUlVFKSlcbnNldC5zZWVkKDg4OClcblxuY2hlY2twb2ludChcIjIwMTgtMTAtMDFcIiwgY2hlY2twb2ludExvY2F0aW9uID0gdGVtcGRpcigpKVxuc2V0d2QoXCJcIilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGZvcmNhdHMpXG5saWJyYXJ5KGdncHVicilcbmxpYnJhcnkoZ3JpZEV4dHJhKVxubGlicmFyeShjYXJldClcbmxpYnJhcnkoY2hlY2twb2ludClcbiMgbGlicmFyeSh6b28pIFxuXG5vcHRpb25zKHNjaXBlbj05OTkpXG5ybShsaXN0ID0gbHMoYWxsID0gVFJVRSkpXG5jaGVja3BvaW50KFwiMjAxOC0xMC0wMVwiLCBjaGVja3BvaW50TG9jYXRpb24gPSB0ZW1wZGlyKCkpXG5cbnNldHdkKFwiL1VzZXJzL2xzeS9PbmVEcml2ZSAtIFVXLU1hZGlzb24vTXkgUi9teSBSIHJlcG9zaXRvcnlcIilcbmBgYCJ9 -->
 <pre class="r"><code>library(tidyverse)
 library(forcats)
 library(ggpubr)
 library(gridExtra)
 library(caret)
 library(checkpoint)
-# library(zoo)
+# library(zoo) 
 
 options(scipen=999)
 rm(list = ls(all = TRUE))
-set.seed(888)
-
 checkpoint(&quot;2018-10-01&quot;, checkpointLocation = tempdir())
-setwd(&quot;&quot;)</code></pre>
+
+setwd(&quot;/Users/lsy/OneDrive - UW-Madison/My R/my R repository&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuYGBgclxubXVsdGlwbG90IDwtIGZ1bmN0aW9uKC4uLiwgcGxvdGxpc3Q9TlVMTCwgZmlsZSwgY29scz0xLCBsYXlvdXQ9TlVMTCkge1xuICBsaWJyYXJ5KGdyaWQpXG5cbiAgIyBNYWtlIGEgbGlzdCBmcm9tIHRoZSAuLi4gYXJndW1lbnRzIGFuZCBwbG90bGlzdFxuICBwbG90cyA8LSBjKGxpc3QoLi4uKSwgcGxvdGxpc3QpXG5cbiAgbnVtUGxvdHMgPSBsZW5ndGgocGxvdHMpXG5cbiAgIyBJZiBsYXlvdXQgaXMgTlVMTCwgdGhlbiB1c2UgJ2NvbHMnIHRvIGRldGVybWluZSBsYXlvdXRcbiAgaWYgKGlzLm51bGwobGF5b3V0KSkge1xuICAgICMgTWFrZSB0aGUgcGFuZWxcbiAgICAjIG5jb2w6IE51bWJlciBvZiBjb2x1bW5zIG9mIHBsb3RzXG4gICAgIyBucm93OiBOdW1iZXIgb2Ygcm93cyBuZWVkZWQsIGNhbGN1bGF0ZWQgZnJvbSAjIG9mIGNvbHNcbiAgICBsYXlvdXQgPC0gbWF0cml4KHNlcSgxLCBjb2xzICogY2VpbGluZyhudW1QbG90cy9jb2xzKSksXG4gICAgICAgICAgICAgICAgICAgIG5jb2wgPSBjb2xzLCBucm93ID0gY2VpbGluZyhudW1QbG90cy9jb2xzKSlcbiAgfVxuXG4gaWYgKG51bVBsb3RzPT0xKSB7XG4gICAgcHJpbnQocGxvdHNbWzFdXSlcblxuICB9IGVsc2Uge1xuICAgICMgU2V0IHVwIHRoZSBwYWdlXG4gICAgZ3JpZC5uZXdwYWdlKClcbiAgICBwdXNoVmlld3BvcnQodmlld3BvcnQobGF5b3V0ID0gZ3JpZC5sYXlvdXQobnJvdyhsYXlvdXQpLCBuY29sKGxheW91dCkpKSlcblxuICAgICMgTWFrZSBlYWNoIHBsb3QsIGluIHRoZSBjb3JyZWN0IGxvY2F0aW9uXG4gICAgZm9yIChpIGluIDE6bnVtUGxvdHMpIHtcbiAgICAgICMgR2V0IHRoZSBpLGogbWF0cml4IHBvc2l0aW9ucyBvZiB0aGUgcmVnaW9ucyB0aGF0IGNvbnRhaW4gdGhpcyBzdWJwbG90XG4gICAgICBtYXRjaGlkeCA8LSBhcy5kYXRhLmZyYW1lKHdoaWNoKGxheW91dCA9PSBpLCBhcnIuaW5kID0gVFJVRSkpXG5cbiAgICAgIHByaW50KHBsb3RzW1tpXV0sIHZwID0gdmlld3BvcnQobGF5b3V0LnBvcy5yb3cgPSBtYXRjaGlkeCRyb3csXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxheW91dC5wb3MuY29sID0gbWF0Y2hpZHgkY29sKSlcbiAgICB9XG4gIH1cbn1cblxuYGBgXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r</p>
-<pre class="r"><code>multiplot &lt;- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
-
-  # Make a list from the ... arguments and plotlist
-  plots &lt;- c(list(...), plotlist)
-
-  numPlots = length(plots)
-
-  # If layout is NULL, then use 'cols' to determine layout
-  if (is.null(layout)) {
-    # Make the panel
-    # ncol: Number of columns of plots
-    # nrow: Number of rows needed, calculated from # of cols
-    layout &lt;- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                    ncol = cols, nrow = ceiling(numPlots/cols))
-  }
-
- if (numPlots==1) {
-    print(plots[[1]])
-
-  } else {
-    # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-
-    # Make each plot, in the correct location
-    for (i in 1:numPlots) {
-      # Get the i,j matrix positions of the regions that contain this subplot
-      matchidx &lt;- as.data.frame(which(layout == i, arr.ind = TRUE))
-
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
-                                      layout.pos.col = matchidx$col))
-    }
-  }
-}
-</code></pre>
-<pre><code></code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiY2FyZXQgc3VwZXJ2aXNlZCBsZWFybmluZyBub3RlcyIKYXV0aG9yOiAiU2h1LVl1YW4gTGl1IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKcHVycG9zZTogRGF0YUNhbXAgY291cnNlIG5vdGVzIG9mIHN1cGVydmlzZWQgbGVhcm5pbmcgd2l0aCBjYXJldAotLS0KCmBgYHtyIHNldCB1cH0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoZm9yY2F0cykKbGlicmFyeShnZ3B1YnIpCmxpYnJhcnkoZ3JpZEV4dHJhKQpsaWJyYXJ5KGNhcmV0KQpsaWJyYXJ5KGNoZWNrcG9pbnQpCiMgbGlicmFyeSh6b28pCgpvcHRpb25zKHNjaXBlbj05OTkpCnJtKGxpc3QgPSBscyhhbGwgPSBUUlVFKSkKc2V0LnNlZWQoODg4KQoKY2hlY2twb2ludCgiMjAxOC0xMC0wMSIsIGNoZWNrcG9pbnRMb2NhdGlvbiA9IHRlbXBkaXIoKSkKc2V0d2QoIiIpCmBgYAoKYGBge3IgZXh0cmEgZnVuY3Rpb259Cm11bHRpcGxvdCA8LSBmdW5jdGlvbiguLi4sIHBsb3RsaXN0PU5VTEwsIGZpbGUsIGNvbHM9MSwgbGF5b3V0PU5VTEwpIHsKICBsaWJyYXJ5KGdyaWQpCgogICMgTWFrZSBhIGxpc3QgZnJvbSB0aGUgLi4uIGFyZ3VtZW50cyBhbmQgcGxvdGxpc3QKICBwbG90cyA8LSBjKGxpc3QoLi4uKSwgcGxvdGxpc3QpCgogIG51bVBsb3RzID0gbGVuZ3RoKHBsb3RzKQoKICAjIElmIGxheW91dCBpcyBOVUxMLCB0aGVuIHVzZSAnY29scycgdG8gZGV0ZXJtaW5lIGxheW91dAogIGlmIChpcy5udWxsKGxheW91dCkpIHsKICAgICMgTWFrZSB0aGUgcGFuZWwKICAgICMgbmNvbDogTnVtYmVyIG9mIGNvbHVtbnMgb2YgcGxvdHMKICAgICMgbnJvdzogTnVtYmVyIG9mIHJvd3MgbmVlZGVkLCBjYWxjdWxhdGVkIGZyb20gIyBvZiBjb2xzCiAgICBsYXlvdXQgPC0gbWF0cml4KHNlcSgxLCBjb2xzICogY2VpbGluZyhudW1QbG90cy9jb2xzKSksCiAgICAgICAgICAgICAgICAgICAgbmNvbCA9IGNvbHMsIG5yb3cgPSBjZWlsaW5nKG51bVBsb3RzL2NvbHMpKQogIH0KCiBpZiAobnVtUGxvdHM9PTEpIHsKICAgIHByaW50KHBsb3RzW1sxXV0pCgogIH0gZWxzZSB7CiAgICAjIFNldCB1cCB0aGUgcGFnZQogICAgZ3JpZC5uZXdwYWdlKCkKICAgIHB1c2hWaWV3cG9ydCh2aWV3cG9ydChsYXlvdXQgPSBncmlkLmxheW91dChucm93KGxheW91dCksIG5jb2wobGF5b3V0KSkpKQoKICAgICMgTWFrZSBlYWNoIHBsb3QsIGluIHRoZSBjb3JyZWN0IGxvY2F0aW9uCiAgICBmb3IgKGkgaW4gMTpudW1QbG90cykgewogICAgICAjIEdldCB0aGUgaSxqIG1hdHJpeCBwb3NpdGlvbnMgb2YgdGhlIHJlZ2lvbnMgdGhhdCBjb250YWluIHRoaXMgc3VicGxvdAogICAgICBtYXRjaGlkeCA8LSBhcy5kYXRhLmZyYW1lKHdoaWNoKGxheW91dCA9PSBpLCBhcnIuaW5kID0gVFJVRSkpCgogICAgICBwcmludChwbG90c1tbaV1dLCB2cCA9IHZpZXdwb3J0KGxheW91dC5wb3Mucm93ID0gbWF0Y2hpZHgkcm93LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxheW91dC5wb3MuY29sID0gbWF0Y2hpZHgkY29sKSkKICAgIH0KICB9Cn0KCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiY2FyZXQgc3VwZXJ2aXNlZCBsZWFybmluZyBub3RlcyIKYXV0aG9yOiAiU2h1LVl1YW4gTGl1IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKcHVycG9zZTogRGF0YUNhbXAgY291cnNlIG5vdGVzIG9mIHN1cGVydmlzZWQgbGVhcm5pbmcgd2l0aCBjYXJldAotLS0KCmBgYHtyIHNldCB1cH0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoZm9yY2F0cykKbGlicmFyeShnZ3B1YnIpCmxpYnJhcnkoZ3JpZEV4dHJhKQpsaWJyYXJ5KGNhcmV0KQpsaWJyYXJ5KGNoZWNrcG9pbnQpCiMgbGlicmFyeSh6b28pIAoKb3B0aW9ucyhzY2lwZW49OTk5KQpybShsaXN0ID0gbHMoYWxsID0gVFJVRSkpCmNoZWNrcG9pbnQoIjIwMTgtMTAtMDEiLCBjaGVja3BvaW50TG9jYXRpb24gPSB0ZW1wZGlyKCkpCgpzZXR3ZCgiL1VzZXJzL2xzeS9PbmVEcml2ZSAtIFVXLU1hZGlzb24vTXkgUi9teSBSIHJlcG9zaXRvcnkiKQpgYGAKCmBgYHtyIH0KCgpgYGAKCg==</div>
 
 
 
